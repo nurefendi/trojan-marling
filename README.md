@@ -28,7 +28,7 @@ Ini adalah marling versi lama
  ```
 Pastikan anda sudah login sebagai root sebelum menjalankan perintah dibawah
  ```html
- wget https://raw.githubusercontent.com/nurefendi/trojan-marling/main/mar.sh && chmod +x mar.sh && ./mar.sh
+ wget https://raw.githubusercontent.com/nurefendi/trojan-marling/master/mar.sh && chmod +x mar.sh && ./mar.sh
  ```
 
 Buka panel Marzban dengan mengunjungi https://domainmu/dashboard <br>

@@ -183,10 +183,10 @@ timedatectl set-timezone Asia/Jakarta;
 sudo bash -c "$(curl -sL https://github.com/nurefendi/trojan-marling/raw/master/marzban.sh)" @ install
 
 #Install Subs
-wget -N -P /var/lib/marzban/templates/subscription/  https://raw.githubusercontent.com/nurefendi/trojan-marling/main/index.html
+wget -N -P /var/lib/marzban/templates/subscription/  https://raw.githubusercontent.com/nurefendi/trojan-marling/master/index.html
 
 #install env
-wget -O /opt/marzban/.env "https://raw.githubusercontent.com/nurefendi/trojan-marling/main/env"
+wget -O /opt/marzban/.env "https://raw.githubusercontent.com/nurefendi/trojan-marling/master/env"
 
 #install core Xray
 mkdir -p /var/lib/marzban/core
@@ -196,22 +196,22 @@ cd
 
 #profile
 echo -e 'profile' >> /root/.profile
-wget -O /usr/bin/profile "https://raw.githubusercontent.com/nurefendi/trojan-marling/main/profile";
+wget -O /usr/bin/profile "https://raw.githubusercontent.com/nurefendi/trojan-marling/master/profile";
 chmod +x /usr/bin/profile
 apt install neofetch -y
-wget -O /usr/bin/cekservice "https://raw.githubusercontent.com/nurefendi/trojan-marling/main/cekservice.sh"
+wget -O /usr/bin/cekservice "https://raw.githubusercontent.com/nurefendi/trojan-marling/master/cekservice.sh"
 chmod +x /usr/bin/cekservice
 
 #install compose
 # wget -O /opt/marzban/docker-compose.yml "https://raw.githubusercontent.com/nurefendi/trojan-marling/main/docker-compose.yml"
-wget -O /opt/marzban/docker-compose-marzban.yml "https://raw.githubusercontent.com/nurefendi/trojan-marling/main/docker-compose-marzban.yml"
-wget -O /opt/marzban/docker-compose-nginx.yml "https://raw.githubusercontent.com/nurefendi/trojan-marling/main/docker-compose-nginx.yml"
+wget -O /opt/marzban/docker-compose-marzban.yml "https://raw.githubusercontent.com/nurefendi/trojan-marling/master/docker-compose-marzban.yml"
+wget -O /opt/marzban/docker-compose-nginx.yml "https://raw.githubusercontent.com/nurefendi/trojan-marling/master/docker-compose-nginx.yml"
 
 #Install VNSTAT
 apt -y install vnstat
 /etc/init.d/vnstat restart
 apt -y install libsqlite3-dev
-wget https://github.com/nurefendi/trojan-marling/raw/main/vnstat-2.6.tar.gz
+wget https://github.com/nurefendi/trojan-marling/raw/master/vnstat-2.6.tar.gz
 tar zxvf vnstat-2.6.tar.gz
 cd vnstat-2.6
 ./configure --prefix=/usr --sysconfdir=/etc && make && make install 
@@ -230,9 +230,9 @@ rm -rf /root/vnstat-2.6
 mkdir -p /var/log/nginx
 touch /var/log/nginx/access.log
 touch /var/log/nginx/error.log
-wget -O /opt/marzban/nginx.conf "https://raw.githubusercontent.com/nurefendi/trojan-marling/main/nginx.conf"
-wget -O /opt/marzban/default.conf "https://raw.githubusercontent.com/nurefendi/trojan-marling/main/vps.conf"
-wget -O /opt/marzban/xray.conf "https://raw.githubusercontent.com/nurefendi/trojan-marling/main/xray.conf"
+wget -O /opt/marzban/nginx.conf "https://raw.githubusercontent.com/nurefendi/trojan-marling/master/nginx.conf"
+wget -O /opt/marzban/default.conf "https://raw.githubusercontent.com/nurefendi/trojan-marling/master/vps.conf"
+wget -O /opt/marzban/xray.conf "https://raw.githubusercontent.com/nurefendi/trojan-marling/master/xray.conf"
 mkdir -p /var/www/html
 echo "<pre>Setup by AutoScript LingVPN</pre>" > /var/www/html/index.html
 
@@ -245,7 +245,7 @@ apt install socat cron bash-completion -y
 curl https://get.acme.sh | sh -s email=$email
 /root/.acme.sh/acme.sh --server letsencrypt --register-account -m $email --issue -d $domain --standalone -k ec-256 --debug
 ~/.acme.sh/acme.sh --installcert -d $domain --fullchainpath /var/lib/marzban/xray.crt --keypath /var/lib/marzban/xray.key --ecc
-wget -O /var/lib/marzban/xray_config.json "https://raw.githubusercontent.com/nurefendi/trojan-marling/main/xray_config.json"
+wget -O /var/lib/marzban/xray_config.json "https://raw.githubusercontent.com/nurefendi/trojan-marling/master/xray_config.json"
 
 #install firewall
 apt install ufw -y
@@ -261,7 +261,7 @@ sudo ufw allow 1080/udp
 yes | sudo ufw enable
 
 #install database
-wget -O /var/lib/marzban/db.sqlite3 "https://github.com/nurefendi/trojan-marling/raw/main/db.sqlite3"
+wget -O /var/lib/marzban/db.sqlite3 "https://github.com/nurefendi/trojan-marling/master/master/db.sqlite3"
 
 #install WARP Proxy
 wget -O /root/warp "https://raw.githubusercontent.com/hamid-gh98/x-ui-scripts/main/install_warp_proxy.sh"
