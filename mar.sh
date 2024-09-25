@@ -261,7 +261,7 @@ sudo ufw allow 1080/udp
 yes | sudo ufw enable
 
 #install database
-wget -O /var/lib/marzban/db.sqlite3 "https://github.com/nurefendi/trojan-marling/master/master/db.sqlite3"
+wget -O /var/lib/marzban/db.sqlite3 "https://github.com/nurefendi/trojan-marling/raw/master/db.sqlite3"
 
 #install WARP Proxy
 wget -O /root/warp "https://raw.githubusercontent.com/hamid-gh98/x-ui-scripts/main/install_warp_proxy.sh"
