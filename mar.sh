@@ -203,9 +203,9 @@ wget -O /usr/bin/cekservice "https://raw.githubusercontent.com/nurefendi/trojan-
 chmod +x /usr/bin/cekservice
 
 #install compose
-wget -O /opt/marzban/docker-compose.yml "https://raw.githubusercontent.com/nurefendi/trojan-marling/master/docker-compose.yml"
-# wget -O /opt/marzban/docker-compose-marzban.yml "https://raw.githubusercontent.com/nurefendi/trojan-marling/master/docker-compose-marzban.yml"
-# wget -O /opt/marzban/docker-compose-nginx.yml "https://raw.githubusercontent.com/nurefendi/trojan-marling/master/docker-compose-nginx.yml"
+# wget -O /opt/marzban/docker-compose.yml "https://raw.githubusercontent.com/nurefendi/trojan-marling/master/docker-compose.yml"
+wget -O /opt/marzban/docker-compose-marzban.yml "https://raw.githubusercontent.com/nurefendi/trojan-marling/master/docker-compose-marzban.yml"
+wget -O /opt/marzban/docker-compose-nginx.yml "https://raw.githubusercontent.com/nurefendi/trojan-marling/master/docker-compose-nginx.yml"
 
 #Install VNSTAT
 apt -y install vnstat
@@ -274,19 +274,18 @@ apt clean
 cd /opt/marzban
 sed -i "s/# SUDO_USERNAME = \"admin\"/SUDO_USERNAME = \"${userpanel}\"/" /opt/marzban/.env
 sed -i "s/# SUDO_PASSWORD = \"admin\"/SUDO_PASSWORD = \"${passpanel}\"/" /opt/marzban/.env
-docker compose down && \
-docker compose up -d
-
-# docker compose -f docker-compose-nginx.yml down && \
-# docker compose -f docker-compose-marzban.yml down && \
-# docker compose -f docker-compose-nginx.yml up -d && \
-# docker compose -f docker-compose-marzban.yml up -d
+docker compose -f docker-compose-nginx.yml down && \
+docker compose -f docker-compose-marzban.yml down && \
+docker compose -f docker-compose-nginx.yml up -d && \
+docker compose -f docker-compose-marzban.yml up -d
 
 marzban cli admin import-from-env -y
 sed -i "s/SUDO_USERNAME = \"${userpanel}\"/# SUDO_USERNAME = \"admin\"/" /opt/marzban/.env
 sed -i "s/SUDO_PASSWORD = \"${passpanel}\"/# SUDO_PASSWORD = \"admin\"/" /opt/marzban/.env
-docker compose down && \
-docker compose up -d
+docker compose -f docker-compose-nginx.yml down && \
+docker compose -f docker-compose-marzban.yml down && \
+docker compose -f docker-compose-nginx.yml up -d && \
+docker compose -f docker-compose-marzban.yml up -d
 
 cd
 profile
