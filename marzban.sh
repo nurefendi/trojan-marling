@@ -127,7 +127,8 @@ install_marzban_script() {
 
 install_marzban() {
     # Fetch releases
-    FILES_URL_PREFIX="https://raw.githubusercontent.com/Gozargah/Marzban/master"
+    # FILES_URL_PREFIX="https://raw.githubusercontent.com/Gozargah/Marzban/master"
+    FILES_URL_PREFIX="https://raw.githubusercontent.com/Gozargah/Marzban/refs/tags/v0.6.0"
     
     mkdir -p "$DATA_DIR"
     mkdir -p "$APP_DIR"
