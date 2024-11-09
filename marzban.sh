@@ -7,7 +7,7 @@ if [ -z "$APP_NAME" ]; then
 fi
 APP_DIR="$INSTALL_DIR/$APP_NAME"
 DATA_DIR="/var/lib/$APP_NAME"
-COMPOSE_FILE="$APP_DIR/docker-compose-marzban.yml"
+COMPOSE_FILE="$APP_DIR/docker-compose.yml"
 
 
 colorized_echo() {
@@ -133,8 +133,8 @@ install_marzban() {
     mkdir -p "$APP_DIR"
     
     colorized_echo blue "Fetching compose file"
-    curl -sL "$FILES_URL_PREFIX/docker-compose.yml" -o "$APP_DIR/docker-compose-marzban.yml"
-    colorized_echo green "File saved in $APP_DIR/docker-compose-marzban.yml"
+    curl -sL "$FILES_URL_PREFIX/docker-compose.yml" -o "$APP_DIR/docker-compose.yml"
+    colorized_echo green "File saved in $APP_DIR/docker-compose.yml"
     
     colorized_echo blue "Fetching .env file"
     curl -sL "$FILES_URL_PREFIX/.env.example" -o "$APP_DIR/.env"
